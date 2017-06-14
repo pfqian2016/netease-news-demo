@@ -2,7 +2,7 @@
     <div class="tabs">
         <div class="tabs-inner">
             <router-link to="/news/military">Military</router-link>
-            <router-link to="/news/sport">Sport</router-link>
+            <router-link to="/news/sports">Sports</router-link>
             <router-link to="/news/technique">Technique</router-link>
             <router-link to="/news/education">Education</router-link>
             <router-link to="/news/entertainment">Entertainment</router-link>
@@ -16,7 +16,7 @@
 <style scoped>
     .tabs {
         width: 100%;
-        height: 45px;
+        height: 60px;
         overflow-x: scroll;
     }
     .tabs::-webkit-scrollbar {
@@ -24,21 +24,19 @@
     }
     .tabs .tabs-inner {
         width: 1800px;
-        height: 45px;
+        height: 60px;
     }
     .tabs a {
         display: block;
         float: left;
         width: 200px;
-        height: 45px;
-        line-height: 45px;
+        height: 60px;
+        line-height: 60px;
         font-size: 1.4em;
         text-align: center;
         text-decoration: none;
         background-color: #fff;
         color: #999;
-        border: none;
-        outline: none;
     }
     .tabs .router-link-active {
         font-size: 1.6em;

@@ -22,4 +22,8 @@ export default {
 #app {
     width: 100%;
 }
+body {
+    margin: 0;
+    padding: 0;
+}
 </style>

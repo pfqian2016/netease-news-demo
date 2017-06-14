@@ -1,7 +1,7 @@
 import News from '../components/News.vue'
 import User from '../components/UserCenter.vue'
-const Military = {template:'<div>{{this.$route.path}}</div>'}
-const Sport = {template:'<div>{{this.$route.path}}</div>'}
+// const Military = {template:'<div>{{this.$route.path}}<br>{{this.$route.path}}<br>{{this.$route.path}}<br>{{this.$route.path}}<br></div>'}
+const Sports = {template:'<div>{{this.$route.path}}</div>'}
 const Technique = {template:'<div>{{this.$route.path}}</div>'}
 const Education = {template:'<div>{{this.$route.path}}</div>'}
 const Entertainment = {template:'<div>{{this.$route.path}}</div>'}
@@ -9,6 +9,8 @@ const Finiance = {template:'<div>{{this.$route.path}}</div>'}
 const Stock = {template:'<div>{{this.$route.path}}</div>'}
 const Travel = {template:'<div>{{this.$route.path}}</div>'}
 const Female = {template:'<div>{{this.$route.path}}</div>'}
+
+import Military from '../components/newsType/Military.vue'
 
 const routes = [
     {
@@ -24,8 +26,8 @@ const routes = [
                 component: Military
             },
             {
-                path: 'sport',
-                component: Sport
+                path: 'sports',
+                component: Sports
             },
             {
                 path: 'technique',

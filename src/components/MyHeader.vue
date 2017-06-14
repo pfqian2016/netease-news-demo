@@ -21,12 +21,14 @@ export default {
 </script>
 <style scoped>
 .header {
-    position: relative;
+    position: fixed;
+    margin: 0;
     width: 100%;
     height: 8em;
     background-color: #42b983;
     text-align: center;
     vertical-align: middle;
+    z-index: 1;
 }
 .header h1 {
     display: inline-block;
