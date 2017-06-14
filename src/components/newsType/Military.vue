@@ -1,6 +1,6 @@
 <template>
     <div class="news-list">
-        <li v-for="item in newsList">
+        <li v-for="item in warNewsList">
             <img :src="item.imgurl">
             <div class="news-list-inner">
                 <h2>{{item.title}}</h2>
@@ -10,41 +10,19 @@
     </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                newsList: [],
-                currentType: 'war',
-                queryPage: 1
-            }
-        },
-        methods: {
-            fetchNews() {
-                let xhr = new XMLHttpRequest();
-                let url = 'http://wangyi.butterfly.mopaasapp.com/news/api?type='
-                          + this.currentType
-                          + '&page='
-                          + this.queryPage
-                          + '&limit=10';
-                xhr.open('GET',url, true);
-                xhr.onreadystatechange = () => {
-                    if(xhr.readyState === 4) {
-                        if(xhr.status === 200 || xhr.status === 304) {
-                            let lists = JSON.parse(xhr.responseText).list;
-                            for(let i = 0; i < lists.length; i++) {
-                                this.newsList.push(lists[i]);
-                            }
-                            this.queryPage++;
-                        }
-                    }
-                };
-                xhr.send(null);
-            }
-        },
-        mounted() {
-            this.fetchNews();
-        }
+import {mapGetters, mapActions} from 'vuex'
+
+export default {
+    // methods: mapActions([
+    //     'fetchWarNews'
+    // ]),
+    computed: mapGetters([
+        'warNewsList'
+    ]),
+    mounted() {
+        this.$store.dispatch('fetchWarNews');
     }
+}
 </script>
 <style scoped>
     .news-list {

@@ -1,22 +1,19 @@
 <template>
     <div class="header">
-        <h1>Netease News</h1>
+        <h1>Netease News / {{currentType}}</h1>
         <button type="button" name="button" @click="refresh"><span class="fa fa-refresh fa-4x"></span></button>
     </div>
 </template>
 <script>
+import {mapGetters, mapActions} from 'vuex'
+
 export default {
-    data() {
-        return {
-            msg: 'refresh'
-        }
-    },
-    methods: {
-        refresh() {
-            //TODO refresh the news
-            console.log(this.msg);
-        }
-    }
+    methods: mapActions([
+        'refresh'
+    ]),
+    computed: mapGetters([
+        'currentType'
+    ])
 }
 </script>
 <style scoped>
