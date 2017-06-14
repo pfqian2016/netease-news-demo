@@ -1,33 +1,47 @@
 <template>
     <div class="tabs">
-        <ul>
-            <li>
-                <router-link to="/news/military">Military</router-link>
-            </li>
-            <li>
-                <router-link to="/news/sport">Sport</router-link>
-            </li>
-            <li>
-                <router-link to="/news/technique">Technique</router-link>
-            </li>
-            <li>
-                <router-link to="/news/education">Education</router-link>
-            </li>
-            <li>
-                <router-link to="/news/entertainment">Entertainment</router-link>
-            </li>
-            <li>
-                <router-link to="/news/finiance">Finiance</router-link>
-            </li>
-            <li>
-                <router-link to="/news/stock">Stock</router-link>
-            </li>
-            <li>
-                <router-link to="/news/travel">Travel</router-link>
-            </li>
-            <li>
-                <router-link to="/news/female">Female</router-link>
-            </li>
-        </ul>
+        <div class="tabs-inner">
+            <router-link to="/news/military">Military</router-link>
+            <router-link to="/news/sport">Sport</router-link>
+            <router-link to="/news/technique">Technique</router-link>
+            <router-link to="/news/education">Education</router-link>
+            <router-link to="/news/entertainment">Entertainment</router-link>
+            <router-link to="/news/finiance">Finiance</router-link>
+            <router-link to="/news/stock">Stock</router-link>
+            <router-link to="/news/travel">Travel</router-link>
+            <router-link to="/news/female">Female</router-link>
+        </div>
     </div>
 </template>
+<style scoped>
+    .tabs {
+        width: 100%;
+        height: 45px;
+        overflow-x: scroll;
+    }
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .tabs .tabs-inner {
+        width: 1800px;
+        height: 45px;
+    }
+    .tabs a {
+        display: block;
+        float: left;
+        width: 200px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1.4em;
+        text-align: center;
+        text-decoration: none;
+        background-color: #fff;
+        color: #999;
+        border: none;
+        outline: none;
+    }
+    .tabs .router-link-active {
+        font-size: 1.6em;
+        color: #42b983;
+    }
+</style>

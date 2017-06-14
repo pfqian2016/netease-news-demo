@@ -14,7 +14,7 @@ export default {
     methods: {
         refresh() {
             //TODO refresh the news
-            console.log(msg);
+            console.log(this.msg);
         }
     }
 }

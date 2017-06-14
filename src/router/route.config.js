@@ -12,10 +12,6 @@ const Female = {template:'<div>{{this.$route.path}}</div>'}
 
 const routes = [
     {
-        path:'/',
-        redirect: '/news'
-    },
-    {
         path:'/news',
         component: News,
         children: [
@@ -64,6 +60,10 @@ const routes = [
     {
         path:'/user',
         component: User
+    },
+    {
+        path: '*',
+        redirect: '/news/military'
     }
 ]
 
