@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <h1>Netease News / {{currentType}}</h1>
+        <h1>Netease News / {{type}}</h1>
         <button type="button" name="button" @click="refresh"><span class="fa fa-refresh fa-4x"></span></button>
     </div>
 </template>
@@ -12,7 +12,7 @@ export default {
         'refresh'
     ]),
     computed: mapGetters([
-        'currentType'
+        'type'
     ])
 }
 </script>

@@ -11,6 +11,14 @@ const state = {
     msg: 'store message',
     currentType: 'war',
     warNewsList: [],
+    sportNewsList: [],
+    techNewsList: [],
+    eduNewsList: [],
+    entNewsList: [],
+    moneyNewsList: [],
+    gupiaoNewsList: [],
+    travelNewsList: [],
+    ladyNewsList: [],
     queryPage: 1,
     isLoading: false
 };

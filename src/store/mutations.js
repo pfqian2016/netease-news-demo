@@ -29,7 +29,7 @@ function queryDatas(state) {
             if(xhr.status === 200 || xhr.status === 304) {
                 let lists = JSON.parse(xhr.responseText).list;
                 for(let i = 0; i < lists.length; i++) {
-                    state.warNewsList.push(lists[i]);
+                    state[state.currentType + 'NewsList'].push(lists[i]);
                 }
                 state.queryPage++;
                 state.isLoading = false;
