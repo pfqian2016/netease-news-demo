@@ -1,11 +1,13 @@
 import * as types from './types'
 
 const actions = {
+    //refresh the page
     refresh({commit}) {
         commit(types.REFRESH);
     },
-    fetchWarNews({commit}) {
-        commit(types.FETCH_WAR_NEWS);
+    //fetch news
+    fetchNews({commit}) {
+        commit(types.FETCH_NEWS);
     },
     loadMore({commit}) {
         commit(types.LOAD_MORE);

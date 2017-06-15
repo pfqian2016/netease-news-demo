@@ -3,11 +3,12 @@ import * as types from './types'
 const mutations = {
     [types.REFRESH](state) {
         //clear array of datas
-        state.warNewsList = [];
-        state.queryPage = 1;
+        state[state.currentType + 'NewsList'] = [];
+        state[state.currentType + 'QueryPage'] = 1;
         queryDatas(state);
     },
-    [types.FETCH_WAR_NEWS](state) {
+    [types.FETCH_NEWS](state) {
+        if(state[state.currentType + 'NewsList'].length) return ;
         queryDatas(state);
     },
     [types.LOAD_MORE](state) {
@@ -21,7 +22,7 @@ function queryDatas(state) {
     let url = 'http://wangyi.butterfly.mopaasapp.com/news/api?type='
               + state.currentType
               + '&page='
-              + state.queryPage
+              + state[state.currentType +'QueryPage']
               + '&limit=10';
     xhr.open('GET',url, true);
     xhr.onreadystatechange = () => {
@@ -31,7 +32,7 @@ function queryDatas(state) {
                 for(let i = 0; i < lists.length; i++) {
                     state[state.currentType + 'NewsList'].push(lists[i]);
                 }
-                state.queryPage++;
+                state[state.currentType + 'QueryPage']++;
                 state.isLoading = false;
             }
         }

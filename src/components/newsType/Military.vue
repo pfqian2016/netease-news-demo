@@ -1,6 +1,6 @@
 <template>
     <div class="news-list">
-        <li v-for="item in warNewsList">
+        <li v-for="item in newsList">
             <img :src="item.imgurl">
             <div class="news-list-inner">
                 <h2>{{item.title}}</h2>
@@ -10,17 +10,16 @@
     </div>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
-    // methods: mapActions([
-    //     'fetchWarNews'
-    // ]),
     computed: mapGetters([
-        'warNewsList'
+        'newsList'
     ]),
     mounted() {
-        this.$store.dispatch('fetchWarNews');
+        this.$store.state.currentType = 'war';
+        this.$store.dispatch('fetchNews');
+        console.log('military mounted');
     }
 }
 </script>

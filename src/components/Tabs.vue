@@ -9,7 +9,7 @@
             <router-link to="/news/finiance">Finiance</router-link>
             <router-link to="/news/stock">Stock</router-link>
             <router-link to="/news/travel">Travel</router-link>
-            <router-link to="/news/female">Female</router-link>
+            <router-link to="/news/female">Lady</router-link>
         </div>
     </div>
 </template>

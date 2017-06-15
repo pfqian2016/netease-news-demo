@@ -1,17 +1,15 @@
 import News from '../components/News.vue'
 import User from '../components/UserCenter.vue'
-// const Military = {template:'<div>{{this.$route.path}}<br>{{this.$route.path}}<br>{{this.$route.path}}<br>{{this.$route.path}}<br></div>'}
-const Sports = {template:'<div>{{this.$route.path}}</div>'}
-const Technique = {template:'<div>{{this.$route.path}}</div>'}
-const Education = {template:'<div>{{this.$route.path}}</div>'}
-const Entertainment = {template:'<div>{{this.$route.path}}</div>'}
-const Finiance = {template:'<div>{{this.$route.path}}</div>'}
-const Stock = {template:'<div>{{this.$route.path}}</div>'}
-const Travel = {template:'<div>{{this.$route.path}}</div>'}
-const Female = {template:'<div>{{this.$route.path}}</div>'}
 
 import Military from '../components/newsType/Military.vue'
-
+import Sports from '../components/newsType/Sports.vue'
+import Technique from '../components/newsType/Technique.vue'
+import Education from '../components/newsType/Education.vue'
+import Entertainment from '../components/newsType/Entertainment.vue'
+import Finiance from '../components/newsType/Finiance.vue'
+import Stock from '../components/newsType/Stock.vue'
+import Travel from '../components/newsType/Travel.vue'
+import Female from '../components/newsType/Female.vue'
 const routes = [
     {
         path:'/news',

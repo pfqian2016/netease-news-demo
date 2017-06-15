@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 const state = {
     msg: 'store message',
-    currentType: 'war',
+    currentType: '',
     warNewsList: [],
     sportNewsList: [],
     techNewsList: [],
@@ -19,7 +19,15 @@ const state = {
     gupiaoNewsList: [],
     travelNewsList: [],
     ladyNewsList: [],
-    queryPage: 1,
+    warQueryPage: 1,
+    sportQueryPage:1,
+    techQueryPage:1,
+    eduQueryPage:1,
+    entQueryPage:1,
+    moneyQueryPage:1,
+    gupiaoQueryPage:1,
+    travelQueryPage:1,
+    ladyQueryPage:1,
     isLoading: false
 };
 

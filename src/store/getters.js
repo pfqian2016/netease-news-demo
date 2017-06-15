@@ -26,11 +26,15 @@ const getters = {
         default:
       }
     },
-    warNewsList(state) {
-        return state.warNewsList
+    newsList(state) {
+        let ret = dedupe(state[state.currentType + 'NewsList']);
+        return ret;
     },
     isLoading(state) {
-        return state.isLoading
+        return state.isLoading;
     }
+}
+function dedupe(arr) {
+    return [...new Set(arr)];
 }
 export default getters
