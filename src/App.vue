@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <MyHeader></MyHeader>
+        <MyHeader v-if="isHeaderVisable"></MyHeader>
         <router-view></router-view>
         <MyNav></MyNav>
     </div>
@@ -9,12 +9,16 @@
 <script>
 import MyNav from './components/MyNav.vue'
 import MyHeader from './components/MyHeader.vue'
+import {mapGetters} from 'vuex'
 
 export default {
     name: 'app',
     components: {
         MyNav,MyHeader
-    }
+    },
+    computed:mapGetters([
+      'isHeaderVisable'
+    ])
 }
 </script>
 

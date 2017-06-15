@@ -28,7 +28,8 @@ const state = {
     gupiaoQueryPage:1,
     travelQueryPage:1,
     ladyQueryPage:1,
-    isLoading: false
+    isLoading: false,
+    showHeader:true
 };
 
 

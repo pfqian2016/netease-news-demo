@@ -12,6 +12,9 @@ import LoadMore from './LoadMore.vue'
 export default {
     components: {
         Tabs,LoadMore
+    },
+    mounted() {
+      this.$store.state.showHeader = true;
     }
 }
 </script>

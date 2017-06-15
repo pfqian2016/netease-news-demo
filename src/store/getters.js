@@ -32,6 +32,9 @@ const getters = {
     },
     isLoading(state) {
         return state.isLoading;
+    },
+    isHeaderVisable(state) {
+        return state.showHeader;
     }
 }
 function dedupe(arr) {
