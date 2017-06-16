@@ -15,7 +15,7 @@ import {mapGetters} from 'vuex'
 export default {
     methods: {
         getIntoDetails(item) {
-            // this.$store.state.isNewsDetailsShown = true;
+            this.$store.dispatch('getIntoDetails', item);
         }
     },
     computed: mapGetters([

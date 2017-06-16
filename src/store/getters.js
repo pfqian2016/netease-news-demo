@@ -27,8 +27,9 @@ const getters = {
       }
     },
     newsList(state) {
-        let ret = dedupe(state[state.currentType + 'NewsList']);
-        return ret;
+        // let ret = dedupe(state[state.currentType + 'NewsList']);
+        // return ret;
+        return state[state.currentType + 'NewsList'];
     },
     isLoading(state) {
         return state.isLoading;
@@ -38,6 +39,9 @@ const getters = {
     },
     isNewsDetailsShown(state) {
         return state.isNewsDetailsShown;
+    },
+    newsDetails(state) {
+        return state.detailedNews;
     }
 }
 function dedupe(arr) {

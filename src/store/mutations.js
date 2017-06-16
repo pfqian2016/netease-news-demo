@@ -13,6 +13,10 @@ const mutations = {
     },
     [types.LOAD_MORE](state) {
         queryDatas(state);
+    },
+    [types.GET_INTO_DETAILS](state, payload) {
+        queryDetails(state, payload);
+        state.isNewsDetailsShown = true;
     }
 }
 
@@ -34,6 +38,23 @@ function queryDatas(state) {
                 }
                 state[state.currentType + 'QueryPage']++;
                 state.isLoading = false;
+            }
+        }
+    };
+    xhr.send(null);
+}
+function queryDetails(state, payload) {
+    console.log(payload.id);
+    let xhr = new XMLHttpRequest();
+    let url = 'http://wangyi.butterfly.mopaasapp.com/detail/api?simpleId='
+              + payload.id;
+    xhr.open('GET',url, true);
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4) {
+            if(xhr.status === 200 || xhr.status === 304) {
+                let details = JSON.parse(xhr.responseText);
+                details.docurl = payload.docurl;
+                state.detailedNews = details;
             }
         }
     };

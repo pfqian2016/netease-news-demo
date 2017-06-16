@@ -9,8 +9,8 @@ Vue.use(Vuex)
 
 const state = {
     msg: 'store message',
-    currentType: '',
-    warNewsList: [],
+    currentType: '',//当前选中标签类型
+    warNewsList: [],//获取军事新闻的数组
     sportNewsList: [],
     techNewsList: [],
     eduNewsList: [],
@@ -19,7 +19,7 @@ const state = {
     gupiaoNewsList: [],
     travelNewsList: [],
     ladyNewsList: [],
-    warQueryPage: 1,
+    warQueryPage: 1,//军事新闻想要请求的页数
     sportQueryPage:1,
     techQueryPage:1,
     eduQueryPage:1,
@@ -28,9 +28,10 @@ const state = {
     gupiaoQueryPage:1,
     travelQueryPage:1,
     ladyQueryPage:1,
-    isLoading: false,
-    showHeader:true,
-    isNewsDetailsShown:true
+    isLoading: false,//加载新闻时置为true
+    showHeader:true,//路由到user时隐藏header
+    isNewsDetailsShown:false,//新闻详情页显示
+    detailedNews: {}//请求到的新闻详情对象
 };
 
 

@@ -1,6 +1,6 @@
 <template>
     <div class="news-list">
-        <li v-for="item in newsList">
+        <li v-for="item in newsList" @click="getIntoDetails(item)">
             <img :src="item.imgurl">
             <div class="news-list-inner">
                 <h2>{{item.title}}</h2>
@@ -13,6 +13,11 @@
 import {mapGetters} from 'vuex'
 
 export default {
+    methods: {
+        getIntoDetails(item) {
+            this.$store.dispatch('getIntoDetails', item);
+        }
+    },
     computed: mapGetters([
         'newsList'
     ]),

@@ -11,6 +11,9 @@ const actions = {
     },
     loadMore({commit}) {
         commit(types.LOAD_MORE);
+    },
+    getIntoDetails({commit},payload) {
+        commit(types.GET_INTO_DETAILS,payload);
     }
 }
 

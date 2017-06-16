@@ -1,23 +1,18 @@
 <template>
     <div class="news-details">
         <div class="toolbar">
-            <i class="fa fa-angle-left fa-5x"></i>
+            <i class="fa fa-angle-left fa-5x" @click="back"></i>
             <i class="fa fa-4x" :class="{'fa-heart':isFavorite,'fa-heart-o':!isFavorite}"  @click="favor"></i>
         </div>
         <div class="details">
             <div class="details-header">
-                <h1>北京电报大楼关闭电报业务 通信人：一个时代结束</h1>
-                <p>网易科技报道</p>
-                <p>2017-06-26 11:42:58</p>
+                <h1 v-text="newsDetails.title"></h1>
+                <p v-text="newsDetails.from"></p>
+                <p v-text="newsDetails.time"></p>
             </div>
-            <div class="details-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="details-content" v-html="newsDetails.content">
             </div>
+            <a :href="newsDetails.docurl">Original Website</a>
         </div>
     </div>
 </template>
@@ -26,14 +21,16 @@
 
     export default {
         computed: mapGetters([
-            'isNewsDetailsShown'
+            'isNewsDetailsShown',
+            'newsDetails'
         ]),
         methods: {
-            hideNewsDetails() {
-                this.$store.state.isNewsDetailsShown = false;
-            },
             favor() {
                 this.isFavorite = !this.isFavorite
+            },
+            back() {
+                this.$store.state.isNewsDetailsShown = false;
+                this.$store.state.detailedNews = {};
             }
         },
         data() {
