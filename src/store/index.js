@@ -29,7 +29,8 @@ const state = {
     travelQueryPage:1,
     ladyQueryPage:1,
     isLoading: false,
-    showHeader:true
+    showHeader:true,
+    isNewsDetailsShown:true
 };
 
 

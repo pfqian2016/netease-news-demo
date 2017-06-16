@@ -17,7 +17,7 @@
     border-top: 1px solid #333;
     z-index: 100;
 }
-a {
+.nav a {
     display: inline-block;
     padding: 1em 0;
     width: 50%;
@@ -30,7 +30,7 @@ a {
 /*a + a {
     border-left: 1px solid #333;
 }*/
-.router-link-active {
+.nav .router-link-active {
     color: #42b983;
 }
 </style>

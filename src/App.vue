@@ -1,23 +1,28 @@
 <template>
     <div id="app">
-        <MyHeader v-if="isHeaderVisable"></MyHeader>
-        <router-view></router-view>
-        <MyNav></MyNav>
+        <NewsDetails v-if="isNewsDetailsShown"></NewsDetails>
+        <div class="main" v-else>
+            <MyHeader v-if="isHeaderVisable"></MyHeader>
+            <router-view></router-view>
+            <MyNav></MyNav>
+        </div>
     </div>
 </template>
 
 <script>
 import MyNav from './components/MyNav.vue'
 import MyHeader from './components/MyHeader.vue'
+import NewsDetails from './components/NewsDetails.vue'
 import {mapGetters} from 'vuex'
 
 export default {
     name: 'app',
     components: {
-        MyNav,MyHeader
+        MyNav,MyHeader,NewsDetails
     },
-    computed:mapGetters([
-      'isHeaderVisable'
+    computed: mapGetters([
+      'isHeaderVisable',
+      'isNewsDetailsShown'
     ])
 }
 </script>

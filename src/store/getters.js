@@ -35,6 +35,9 @@ const getters = {
     },
     isHeaderVisable(state) {
         return state.showHeader;
+    },
+    isNewsDetailsShown(state) {
+        return state.isNewsDetailsShown;
     }
 }
 function dedupe(arr) {

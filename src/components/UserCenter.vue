@@ -8,11 +8,11 @@
                &nbsp;&nbsp;|&nbsp;&nbsp;
               <a href="#">Signup</a>
           </div>
-          <ul>
-              <li>Favorites</li>
-              <li>Messages</li>
-          </ul>
         </div>
+        <ul>
+            <li>Favorites</li>
+            <li>Messages</li>
+        </ul>
     </div>
 </template>
 <script>
@@ -63,8 +63,7 @@
     }
     .user-center ul > li {
         padding: .5em 30px;
-        /*width: 100%;*/
-        font-size: 4em;
+        font-size: 3.4em;
         list-style-type: none;
         color: #42b983;
         border-bottom: 1px solid #999;
