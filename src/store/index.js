@@ -31,7 +31,8 @@ const state = {
     isLoading: false,//加载新闻时置为true
     showHeader:true,//路由到user时隐藏header
     isNewsDetailsShown:false,//新闻详情页显示
-    detailedNews: {}//请求到的新闻详情对象
+    detailedNews: {},//请求到的新闻详情对象
+    isUserValid: false//用户是否登录
 };
 
 

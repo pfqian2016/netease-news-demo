@@ -42,6 +42,9 @@ const getters = {
     },
     newsDetails(state) {
         return state.detailedNews;
+    },
+    isUserValid(state) {
+        return state.isUserValid;
     }
 }
 function dedupe(arr) {

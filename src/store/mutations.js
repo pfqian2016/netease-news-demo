@@ -17,6 +17,15 @@ const mutations = {
     [types.GET_INTO_DETAILS](state, payload) {
         queryDetails(state, payload);
         state.isNewsDetailsShown = true;
+    },
+    [types.USER_LOGIN](state) {
+        state.isUserValid = true;
+    },
+    [types.USER_SIGNUP](state) {
+        console.log('User sign up');
+    },
+    [types.USER_LOGOUT](state) {
+        state.isUserValid = false;
     }
 }
 

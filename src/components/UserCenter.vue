@@ -1,12 +1,13 @@
 <template>
     <div class="user-center">
         <div class="user-header">
-          <p></p>
+          <p class="header-bg"></p>
           <img src="../assets/user_icon.jpg" alt="icon">
-          <div class="user-control">
-              <a href="#">Login</a>
+          <p class="username" @click="logout" v-if="isUserValid">Irish</p>
+          <div class="user-control" v-else>
+              <span @click="login">Login</span>
                &nbsp;&nbsp;|&nbsp;&nbsp;
-              <a href="#">Signup</a>
+              <span @click="signup">Signup</span>
           </div>
         </div>
         <ul>
@@ -16,7 +17,15 @@
     </div>
 </template>
 <script>
+    import {mapGetters, mapActions} from 'vuex'
+
     export default {
+        methods: mapActions([
+            'login','signup','logout'
+        ]),
+        computed: mapGetters([
+            'isUserValid'
+        ]),
         mounted() {
             this.$store.state.showHeader = false;
         }
@@ -30,7 +39,7 @@
         padding-bottom: 8em;
         z-index: 1;
     }
-    .user-center p {
+    .user-center .header-bg {
       width: 100%;
       height: 30em;
       background-color: #42b983;
@@ -49,12 +58,13 @@
         height: 200px;
         border-radius: 50%;
     }
-    .user-center .user-header .user-control {
+    .user-center .user-header .user-control,
+    .user-center .user-header .username {
         margin: 120px auto 30px;
         text-align: center;
         font-size: 2.4em;
     }
-    .user-control a {
+    .user-control span {
         color: #42b983;
         text-decoration: none;
     }

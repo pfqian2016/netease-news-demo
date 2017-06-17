@@ -14,6 +14,15 @@ const actions = {
     },
     getIntoDetails({commit},payload) {
         commit(types.GET_INTO_DETAILS,payload);
+    },
+    login({commit}) {
+        commit(types.USER_LOGIN);
+    },
+    signup({commit}) {
+        commit(types.USER_SIGNUP);
+    },
+    logout({commit}) {
+        commit(types.USER_LOGOUT);
     }
 }
 
