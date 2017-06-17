@@ -25,7 +25,5 @@ npm run dev
 2. 部分新闻详情中的图片大小超出屏幕  
 
 预览图：  
-![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview.png)  
-![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview1.png)  
-![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview2.png)  
-![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview3.png)  
+![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview.png)   ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview1.png)  
+![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview2.png)   ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview3.png)  
