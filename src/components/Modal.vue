@@ -6,8 +6,8 @@
             <hr>
             <div class="dialog-body">
                 <div class="input-group">
-                    <label for="name">Username:</label>
-                    <input type="text" name="name" placeholder="email/phone">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" placeholder="email/phone">
                 </div>
                 <div class="input-group">
                     <label for="passwd">Password:</label>

@@ -4,6 +4,16 @@
 
 一个网易新闻的WebApp，采用Vue + Vuex + Vue-Router + Webpack实现  
 
+### 如何使用  
+1. 下载该项目
+```shell
+git clone https://github.com/pfqian2016/netease-news-demo.git
+cd netease-news-demo
+npm install
+npm run dev
+```
+2. 浏览器打开后，打开审查元素，切换手机模式windows:`ctrl+shift+M` or MacOS:`cmd+shift+M`
+
 ### 已实现的功能
 1. ~~各个组件基本视图~~
 2. ~~路由配置~~
@@ -18,3 +28,4 @@
 ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview.png)  
 ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview1.png)  
 ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview2.png)  
+![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview3.png)  
