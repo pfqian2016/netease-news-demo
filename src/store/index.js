@@ -32,7 +32,8 @@ const state = {
     showHeader:true,//路由到user时隐藏header
     isNewsDetailsShown:false,//新闻详情页显示
     detailedNews: {},//请求到的新闻详情对象
-    isUserValid: false//用户是否登录
+    isUserValid: false,//用户是否登录
+    showModal: false//点击登录或者注册按钮的模态弹框
 };
 
 

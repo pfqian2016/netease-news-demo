@@ -19,7 +19,8 @@ const mutations = {
         state.isNewsDetailsShown = true;
     },
     [types.USER_LOGIN](state) {
-        state.isUserValid = true;
+        // state.isUserValid = true;
+        state.showModal = true;
     },
     [types.USER_SIGNUP](state) {
         console.log('User sign up');

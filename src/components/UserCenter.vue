@@ -14,20 +14,28 @@
             <li>Favorites</li>
             <li>Messages</li>
         </ul>
+        <Modal v-if="showModal"></Modal>
     </div>
 </template>
 <script>
     import {mapGetters, mapActions} from 'vuex'
+    import Modal from './Modal.vue'
 
     export default {
         methods: mapActions([
-            'login','signup','logout'
+            'login',
+            'signup',
+            'logout'
         ]),
         computed: mapGetters([
-            'isUserValid'
+            'isUserValid',
+            'showModal'
         ]),
         mounted() {
             this.$store.state.showHeader = false;
+        },
+        components: {
+            Modal
         }
     }
 </script>

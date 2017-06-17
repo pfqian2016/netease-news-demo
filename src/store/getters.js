@@ -27,8 +27,6 @@ const getters = {
       }
     },
     newsList(state) {
-        // let ret = dedupe(state[state.currentType + 'NewsList']);
-        // return ret;
         return state[state.currentType + 'NewsList'];
     },
     isLoading(state) {
@@ -45,8 +43,14 @@ const getters = {
     },
     isUserValid(state) {
         return state.isUserValid;
+    },
+    showModal(state) {
+        return state.showModal;
     }
 }
+/**
+ * 数组去重函数
+ */
 function dedupe(arr) {
     return [...new Set(arr)];
 }
