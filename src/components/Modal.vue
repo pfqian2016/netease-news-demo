@@ -2,33 +2,66 @@
     <div class="modal">
         <div class="modal-mask"></div>
         <div class="modal-dialog">
-            <h2 class="dialog-title">Login<span class="modal-close" @click="closeModal">&nbsp;&times;&nbsp;</span></h2>
+            <h2 class="dialog-title">{{isLoginOrSignup}}<span class="modal-close" @click="closeModal">&nbsp;&times;&nbsp;</span></h2>
             <hr>
             <div class="dialog-body">
                 <div class="input-group">
                     <label for="username">Username:</label>
-                    <input type="text" name="username" placeholder="email/phone">
+                    <input id="username" type="text" name="username" placeholder="email/phone" v-model="username">
                 </div>
                 <div class="input-group">
-                    <label for="passwd">Password:</label>
-                    <input type="password" name="passwd" placeholder="password">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" placeholder="password" v-model="password">
                 </div>
                 <div class="input-group">
-                    <button type="submit" name="button">Login/Sign up</button>
+                    <button type="submit" name="button" @click="confirm">Login/Sign up</button>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import {mapGetters, mapActions} from 'vuex'
+    import {mapState, mapActions} from 'vuex'
 
     export default {
+        data() {
+            return {
+                username: '',
+                password: ''
+            }
+        },
         methods: {
+            validate(name, pwd) {
+                if(!name.length) {
+                    console.log('username cannot be empty');
+                    return false;
+                }
+                if(!pwd.length) {
+                    console.log('password cannot be empty');
+                    return false;
+                }
+                return true;
+            },
+            confirm() {
+                let _self = this;
+                if(this.validate(_self.username, _self.password)){
+                    switch(this.$store.state.isLoginOrSignup) {
+                        case 'Login':
+                        this.$store.dispatch('login',{username:_self.username,password:_self.password});
+                        break;
+                        case 'Sign up':
+                        this.$store.dispatch('signup',{username:_self.username,password:_self.password});
+                        break;
+                    }
+                }
+            },
             closeModal() {
                 this.$store.state.showModal = false;
             }
-        }
+        },
+        computed: mapState([
+            'isLoginOrSignup'
+        ])
     }
 </script>
 <style scoped>

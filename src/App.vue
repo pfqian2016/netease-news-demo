@@ -2,7 +2,7 @@
     <div id="app">
         <NewsDetails v-if="isNewsDetailsShown"></NewsDetails>
         <div class="main" v-else>
-            <MyHeader v-if="isHeaderVisable"></MyHeader>
+            <MyHeader v-if="showHeader"></MyHeader>
             <router-view></router-view>
             <MyNav></MyNav>
         </div>
@@ -13,15 +13,15 @@
 import MyNav from './components/MyNav.vue'
 import MyHeader from './components/MyHeader.vue'
 import NewsDetails from './components/NewsDetails.vue'
-import {mapGetters} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
     name: 'app',
     components: {
         MyNav,MyHeader,NewsDetails
     },
-    computed: mapGetters([
-      'isHeaderVisable',
+    computed: mapState([
+      'showHeader',
       'isNewsDetailsShown'
     ])
 }

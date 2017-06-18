@@ -17,11 +17,10 @@
     </div>
 </template>
 <script>
-    import {mapGetters, mapActions} from 'vuex'
+    import {mapState, mapActions} from 'vuex'
 
     export default {
-        computed: mapGetters([
-            'isNewsDetailsShown',
+        computed: mapState([
             'newsDetails'
         ]),
         methods: {

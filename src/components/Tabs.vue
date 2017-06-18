@@ -1,15 +1,15 @@
 <template>
     <div class="tabs">
         <div class="tabs-inner">
-            <router-link to="/news/military">Military</router-link>
-            <router-link to="/news/sports">Sports</router-link>
-            <router-link to="/news/technique">Technique</router-link>
-            <router-link to="/news/education">Education</router-link>
-            <router-link to="/news/entertainment">Entertainment</router-link>
-            <router-link to="/news/finiance">Finiance</router-link>
-            <router-link to="/news/stock">Stock</router-link>
-            <router-link to="/news/travel">Travel</router-link>
-            <router-link to="/news/female">Lady</router-link>
+            <router-link to="/news/military" replace>Military</router-link>
+            <router-link to="/news/sports" replace>Sports</router-link>
+            <router-link to="/news/technique" replace>Technique</router-link>
+            <router-link to="/news/education" replace>Education</router-link>
+            <router-link to="/news/entertainment" replace>Entertainment</router-link>
+            <router-link to="/news/finiance" replace>Finiance</router-link>
+            <router-link to="/news/stock" replace>Stock</router-link>
+            <router-link to="/news/travel" replace>Travel</router-link>
+            <router-link to="/news/female" replace>Lady</router-link>
         </div>
     </div>
 </template>

@@ -3,11 +3,11 @@
         <div class="user-header">
           <p class="header-bg"></p>
           <img src="../assets/user_icon.jpg" alt="icon">
-          <p class="username" @click="logout" v-if="isUserValid">Irish</p>
+          <p class="username" @click="logout" v-if="isUserValid" v-text="userInfo.username"></p>
           <div class="user-control" v-else>
-              <span @click="login">Login</span>
+              <span @click="showLoginModal">Login</span>
                &nbsp;&nbsp;|&nbsp;&nbsp;
-              <span @click="signup">Signup</span>
+              <span @click="showSignupModal">Signup</span>
           </div>
         </div>
         <ul>
@@ -18,18 +18,19 @@
     </div>
 </template>
 <script>
-    import {mapGetters, mapActions} from 'vuex'
+    import {mapState, mapActions} from 'vuex'
     import Modal from './Modal.vue'
 
     export default {
         methods: mapActions([
-            'login',
-            'signup',
+            'showLoginModal',
+            'showSignupModal',
             'logout'
         ]),
-        computed: mapGetters([
+        computed: mapState([
             'isUserValid',
-            'showModal'
+            'showModal',
+            'userInfo'
         ]),
         mounted() {
             this.$store.state.showHeader = false;

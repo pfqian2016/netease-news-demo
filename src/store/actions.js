@@ -12,14 +12,20 @@ const actions = {
     loadMore({commit}) {
         commit(types.LOAD_MORE);
     },
-    getIntoDetails({commit},payload) {
-        commit(types.GET_INTO_DETAILS,payload);
+    getIntoDetails({commit}, payload) {
+        commit(types.GET_INTO_DETAILS, payload);
     },
-    login({commit}) {
-        commit(types.USER_LOGIN);
+    showLoginModal({commit}) {
+        commit(types.SHOW_LOGIN_MODAL);
     },
-    signup({commit}) {
-        commit(types.USER_SIGNUP);
+    showSignupModal({commit}) {
+        commit(types.SHOW_SIGNUP_MODAL);
+    },
+    login({commit},user) {
+        commit(types.USER_LOGIN, user);
+    },
+    signup({commit},user) {
+        commit(types.USER_SIGNUP, user);
     },
     logout({commit}) {
         commit(types.USER_LOGOUT);

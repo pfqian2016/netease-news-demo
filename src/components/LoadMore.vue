@@ -4,13 +4,13 @@
     </div>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
     methods: mapActions([
         'loadMore'
     ]),
-    computed: mapGetters([
+    computed: mapState([
         'isLoading'
     ])
 }

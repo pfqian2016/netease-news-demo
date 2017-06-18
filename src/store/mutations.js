@@ -18,15 +18,33 @@ const mutations = {
         queryDetails(state, payload);
         state.isNewsDetailsShown = true;
     },
-    [types.USER_LOGIN](state) {
-        // state.isUserValid = true;
+    [types.SHOW_LOGIN_MODAL](state) {
+        state.isLoginOrSignup = 'Login';
         state.showModal = true;
     },
-    [types.USER_SIGNUP](state) {
-        console.log('User sign up');
+    [types.SHOW_SIGNUP_MODAL](state) {
+        state.isLoginOrSignup = 'Sign up';
+        state.showModal = true;
+    },
+    [types.USER_LOGIN](state,user) {
+        if(login(state, user)){
+            console.log(user.username + ' login');
+            state.isUserValid = true;
+            state.showModal = false;
+        }else {
+            console.log('Please register first');
+        }
+    },
+    [types.USER_SIGNUP](state,user) {
+        console.log(user.username + ' sign up');
+        signUp(state, user);
+        state.isUserValid = true;
+        state.showModal = false;
     },
     [types.USER_LOGOUT](state) {
+        console.log(state.userInfo.username + ' log out');
         state.isUserValid = false;
+        state.userInfo = {};
     }
 }
 
@@ -54,7 +72,6 @@ function queryDatas(state) {
     xhr.send(null);
 }
 function queryDetails(state, payload) {
-    console.log(payload.id);
     let xhr = new XMLHttpRequest();
     let url = 'http://wangyi.butterfly.mopaasapp.com/detail/api?simpleId='
               + payload.id;
@@ -64,10 +81,31 @@ function queryDetails(state, payload) {
             if(xhr.status === 200 || xhr.status === 304) {
                 let details = JSON.parse(xhr.responseText);
                 details.docurl = payload.docurl;
-                state.detailedNews = details;
+                state.newsDetails = details;
             }
         }
     };
     xhr.send(null);
+}
+function signUp(state, user) {
+    let userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
+    user.favorites = [];
+    user.messages = [];
+    userList.push(user);
+    window.localStorage.setItem(types.NETEASE_NEWS_USERS,JSON.stringify(userList));
+    state.userInfo = user;
+}
+function login(state, user) {
+    let ret = false;
+    let userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
+    if(userList.length) {
+        userList.forEach(item => {
+            if(item.username === user.username && item.password === user.password) {
+                state.userInfo = user;
+                ret = true;
+            }
+        });
+    }
+    return ret;
 }
 export default mutations

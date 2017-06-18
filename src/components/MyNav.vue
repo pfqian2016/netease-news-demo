@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
-        <router-link to="/news"><span class="fa fa-newspaper-o"></span> News</router-link>
-        <router-link to="/user"><span class="fa fa-user-o"></span> User</router-link>
+        <router-link to="/news" replace><span class="fa fa-newspaper-o"></span> News</router-link>
+        <router-link to="/user" replace><span class="fa fa-user-o"></span> User</router-link>
     </div>
 </template>
 <style scoped>

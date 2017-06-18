@@ -28,24 +28,6 @@ const getters = {
     },
     newsList(state) {
         return state[state.currentType + 'NewsList'];
-    },
-    isLoading(state) {
-        return state.isLoading;
-    },
-    isHeaderVisable(state) {
-        return state.showHeader;
-    },
-    isNewsDetailsShown(state) {
-        return state.isNewsDetailsShown;
-    },
-    newsDetails(state) {
-        return state.detailedNews;
-    },
-    isUserValid(state) {
-        return state.isUserValid;
-    },
-    showModal(state) {
-        return state.showModal;
     }
 }
 /**
