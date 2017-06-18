@@ -21,22 +21,13 @@
 
     export default {
         computed: mapState([
-            'newsDetails'
+            'newsDetails',
+            'isFavorite'
         ]),
-        methods: {
-            favor() {
-                this.isFavorite = !this.isFavorite
-            },
-            back() {
-                this.$store.state.isNewsDetailsShown = false;
-                this.$store.state.detailedNews = {};
-            }
-        },
-        data() {
-            return {
-                isFavorite: false
-            }
-        }
+        methods: mapActions([
+            'favor',
+            'back'
+        ])
     }
 </script>
 <style scoped>

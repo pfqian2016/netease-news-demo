@@ -17,6 +17,7 @@ const mutations = {
     [types.GET_INTO_DETAILS](state, payload) {
         queryDetails(state, payload);
         state.isNewsDetailsShown = true;
+        checkFavored(state, payload);
     },
     [types.SHOW_LOGIN_MODAL](state) {
         state.isLoginOrSignup = 'Login';
@@ -43,8 +44,35 @@ const mutations = {
     },
     [types.USER_LOGOUT](state) {
         console.log(state.userInfo.username + ' log out');
+        logout(state);
         state.isUserValid = false;
         state.userInfo = {};
+    },
+    [types.FAVOR](state) {
+        if(!state.isFavorite) {
+            //TODO add news to favorites
+            if(state.isUserValid) {
+                state.userInfo.favorites.push(state.newsDetails);
+                state.isFavorite = !state.isFavorite;
+                console.log('favorites: ' + state.userInfo.favorites);
+            } else {
+                console.log('Please login first');
+            }
+        } else {
+            //TODO remove news from favorites
+            state.userInfo.favorites.forEach((item, index, arr) => {
+                if(item.simple_id === state.newsDetails.simple_id) {
+                    arr.splice(index,1);
+                    state.isFavorite = !state.isFavorite;
+                    console.log('favorites: ' + state.userInfo.favorites);
+                }
+            })
+        }
+    },
+    [types.BACK](state) {
+        state.isNewsDetailsShown = false;
+        state.newsDetails = {};
+        state.isFavorite = false;
     }
 }
 
@@ -56,7 +84,7 @@ function queryDatas(state) {
               + '&page='
               + state[state.currentType +'QueryPage']
               + '&limit=10';
-    xhr.open('GET',url, true);
+    xhr.open('GET', url, true);
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4) {
             if(xhr.status === 200 || xhr.status === 304) {
@@ -88,24 +116,33 @@ function queryDetails(state, payload) {
     xhr.send(null);
 }
 function signUp(state, user) {
-    let userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
     user.favorites = [];
     user.messages = [];
-    userList.push(user);
-    window.localStorage.setItem(types.NETEASE_NEWS_USERS,JSON.stringify(userList));
     state.userInfo = user;
+    state.userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
+    window.localStorage.removeItem(types.NETEASE_NEWS_USERS);
 }
 function login(state, user) {
     let ret = false;
     let userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
     if(userList.length) {
-        userList.forEach(item => {
+        userList.forEach((item, index, arr) => {
             if(item.username === user.username && item.password === user.password) {
-                state.userInfo = user;
+                state.userInfo = arr.splice(index, 1)[0];
                 ret = true;
             }
         });
     }
+    state.userList = userList;
+    window.localStorage.removeItem(types.NETEASE_NEWS_USERS);
     return ret;
 }
+function logout(state) {
+    let userList = state.userList;
+    userList.push(state.userInfo);
+    window.localStorage.setItem(types.NETEASE_NEWS_USERS,JSON.stringify(userList));
+}
+ function checkFavored(state, payload) {
+    state.isFavorite = state.userInfo.favorites.some(item => item.simple_id === payload.id);
+ }
 export default mutations

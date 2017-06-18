@@ -29,6 +29,12 @@ const actions = {
     },
     logout({commit}) {
         commit(types.USER_LOGOUT);
+    },
+    favor({commit}) {
+        commit(types.FAVOR);
+    },
+    back({commit}) {
+        commit(types.BACK);
     }
 }
 

@@ -35,7 +35,9 @@ const state = {
     isUserValid: false,//用户是否登录
     showModal: false,//点击登录或者注册按钮的模态弹框
     isLoginOrSignup:'',//用户点击的按钮类型
-    userInfo: {}//存放登录用户信息
+    userInfo: {},//存放登录用户信息
+    userList: [],//模拟服务器存放所有用户信息
+    isFavorite: false//是否收藏这条新闻
 };
 
 
