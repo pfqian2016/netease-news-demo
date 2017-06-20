@@ -10,6 +10,8 @@ import Finiance from '../components/newsType/Finiance.vue'
 import Stock from '../components/newsType/Stock.vue'
 import Travel from '../components/newsType/Travel.vue'
 import Female from '../components/newsType/Female.vue'
+import Favorites from '../components/userDetails/Favorites.vue'
+
 const routes = [
     {
         path:'/news',
@@ -59,7 +61,13 @@ const routes = [
     },
     {
         path:'/user',
-        component: User
+        component: User,
+        children: [
+            {
+                path: 'favorites',
+                component: Favorites
+            }
+        ]
     },
     {
         path: '*',

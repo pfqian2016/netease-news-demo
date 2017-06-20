@@ -17,7 +17,6 @@ const mutations = {
     [types.GET_INTO_DETAILS](state, payload) {
         queryDetails(state, payload);
         state.isNewsDetailsShown = true;
-        checkFavored(state, payload);
     },
     [types.SHOW_LOGIN_MODAL](state) {
         state.isLoginOrSignup = 'Login';
@@ -54,7 +53,7 @@ const mutations = {
             if(state.isUserValid) {
                 state.userInfo.favorites.push(state.newsDetails);
                 state.isFavorite = !state.isFavorite;
-                console.log('favorites: ' + state.userInfo.favorites);
+                console.log(state.userInfo.favorites);
             } else {
                 console.log('Please login first');
             }
@@ -103,13 +102,16 @@ function queryDetails(state, payload) {
     let xhr = new XMLHttpRequest();
     let url = 'http://wangyi.butterfly.mopaasapp.com/detail/api?simpleId='
               + payload.id;
-    xhr.open('GET',url, true);
+    xhr.open('GET', url, true);
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4) {
             if(xhr.status === 200 || xhr.status === 304) {
                 let details = JSON.parse(xhr.responseText);
                 details.docurl = payload.docurl;
+                details.imgurl = payload.imgurl;
+                details.id = payload.id;
                 state.newsDetails = details;
+                checkFavored(state, payload);
             }
         }
     };
@@ -143,6 +145,6 @@ function logout(state) {
     window.localStorage.setItem(types.NETEASE_NEWS_USERS,JSON.stringify(userList));
 }
  function checkFavored(state, payload) {
-    state.isFavorite = state.userInfo.favorites.some(item => item.simple_id === payload.id);
+     state.isFavorite = state.userInfo.favorites.some(item => item.id === payload.id);
  }
 export default mutations

@@ -11,9 +11,10 @@
           </div>
         </div>
         <ul>
-            <li>Favorites</li>
-            <li>Messages</li>
+            <router-link to="/user/favorites" replace>Favorites</router-link>
+            <router-link to="/user/favorites" replace>Messages</router-link>
         </ul>
+        <router-view></router-view>
         <Modal v-if="showModal"></Modal>
     </div>
 </template>
@@ -80,14 +81,16 @@
     .user-center ul {
         padding-left: 0;
     }
-    .user-center ul > li {
+    .user-center ul > a {
+        display: block;
         padding: .5em 30px;
         font-size: 3.4em;
         list-style-type: none;
+        text-decoration: none;
         color: #42b983;
         border-bottom: 1px solid #999;
     }
-    .user-center ul > li:nth-child(1) {
+    .user-center ul > a:nth-child(1) {
         border-top: 1px solid #999;
     }
 </style>
