@@ -39,7 +39,8 @@
         top: 0;
         background-color: #fff;
         width: 100vw;
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
         z-index: 101;
     }
     .favorites .toolbar {
@@ -49,6 +50,7 @@
         background-color: #fff;
         padding: 20px;
         border-bottom: 1px solid #777;
+        z-index: 102;
     }
     .favorites .toolbar .fa-angle-left {
         display: inline-block;

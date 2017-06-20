@@ -30,10 +30,4 @@ const getters = {
         return state[state.currentType + 'NewsList'];
     }
 }
-/**
- * 数组去重函数
- */
-function dedupe(arr) {
-    return [...new Set(arr)];
-}
 export default getters

@@ -91,6 +91,7 @@ function queryDatas(state) {
                 for(let i = 0; i < lists.length; i++) {
                     state[state.currentType + 'NewsList'].push(lists[i]);
                 }
+                state[state.currentType + 'NewsList'] = dedupe(state[state.currentType + 'NewsList']);
                 state[state.currentType + 'QueryPage']++;
                 state.isLoading = false;
             }
@@ -146,5 +147,18 @@ function logout(state) {
 }
  function checkFavored(state, payload) {
      state.isFavorite = state.userInfo.favorites.some(item => item.id === payload.id);
+ }
+ /**
+  * 新闻列表去重函数
+  */
+ function dedupe(arr) {
+     let ret = [];
+     let map = new Map();
+     arr.forEach(item => map.set(item.id, item));
+     let values = map.values();
+     for(let value of values) {
+         ret.push(value);
+     }
+     return ret;
  }
 export default mutations
