@@ -7,7 +7,7 @@
             <div class="dialog-body">
                 <div class="input-group">
                     <label for="username">Username:</label>
-                    <input id="username" type="text" name="username" placeholder="email/phone" v-model="username">
+                    <input id="username" type="text" name="username" placeholder="email/phone" v-model="username" autofocus>
                 </div>
                 <div class="input-group">
                     <label for="password">Password:</label>
@@ -80,46 +80,48 @@
     }
     .modal .modal-dialog {
         position: absolute;
-        left: calc(15vw - 20px);
+        left: calc(15vw - 10px);
         top: 25vh;
         margin: 0 auto;
-        padding: 20px;
+        padding: 10px;
         width: 70vw;
         height: 30vh;
         background-color: #fff;
-        border-radius: 20px;
+        border-radius: 10px;
     }
     .modal .modal-dialog .dialog-title {
-        margin-top: 0;
+        margin: 0;
         position: relative;
         color: #42b983;
-        font-size: 2em;
+        font-size: 1em;
     }
     .modal .modal-dialog .dialog-title .modal-close {
         position: absolute;
         right: 0;
     }
     .modal .modal-dialog .dialog-body {
-        margin-top: 10em;
+        margin-top: 30px;
     }
     .modal .modal-dialog .dialog-body .input-group {
-        font-size: 2.2em;
-        margin: 1em 0;
+        font-size: 14px;
+        margin: .8em 0;
         color: #555;
     }
     .modal .modal-dialog .dialog-body .input-group input {
         display: inline-block;
         font-size: .8em;
-        height: 2.6em;
+        height: 1.6em;
     }
     .modal .modal-dialog .dialog-body .input-group button {
         position: absolute;
-        right: 2em;
-        padding: 10px;
+        right: 1.2em;
+        bottom: .8em;
+        padding: 6px;
         border: 1px solid #42b983;
         border-radius: 5px;
         background-color: transparent;
         font-size: .8em;
         color: #42b983;
+        outline: none;
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="favorites">
         <div class="toolbar">
-            <i class="fa fa-angle-left fa-5x" @click="back"></i>
+            <i class="fa fa-angle-left fa-2x" @click="back"></i>
             <h1>Favorites</h1>
         </div>
         <div class="favorites-list">
@@ -48,54 +48,55 @@
         width: 100%;
         height: auto;
         background-color: #fff;
-        padding: 20px;
+        padding: 10px;
         border-bottom: 1px solid #777;
         z-index: 102;
     }
     .favorites .toolbar .fa-angle-left {
         display: inline-block;
         text-align: center;
-        width: 60px;
+        width: 40px;
         color: #42b983;
     }
     .favorites .toolbar h1 {
         position: absolute;
-        left: calc(50% - 150px);
+        margin: 8px 0;
+        left: calc(50% - 100px);
         top: 0;
-        width: 300px;
-        /*margin-left: calc(50% - 150px);*/
-        font-size: 3em;
+        width: 200px;
+        font-size: 1.6em;
+        text-align: center;
         color: #42b983;
     }
     .favorites .favorites-list {
-        padding: 18px;
-        padding-top: 7.4em;
+        padding: 16px;
+        padding-top: 3.4em;
         overflow-y: scroll;
     }
     .favorites-list li {
         list-style-type: none;
-        padding: 20px;
+        padding: 8px;
     }
     .favorites-list li img {
         display: block;
-        width: 240px;
-        height: 240px;
+        width: 120px;
+        height: 120px;
         float: left;
     }
     .favorites-list li .favorites-list-inner {
         position: relative;
-        padding-left: 260px;
-        height: 240px;
+        padding-left: 130px;
+        height: 120px;
         width: auto;
     }
     .favorites-list li .favorites-list-inner h2 {
         margin-top: 0;
-        font-size: 2.4em;
+        font-size: 1em;
     }
     .favorites-list li .favorites-list-inner p {
         position: absolute;
         bottom: 0;
         right: 0;
-        font-size: 1.8em;
+        font-size: .8em;
     }
 </style>

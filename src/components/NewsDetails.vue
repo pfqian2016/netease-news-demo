@@ -1,8 +1,8 @@
 <template>
     <div class="news-details">
         <div class="toolbar">
-            <i class="fa fa-angle-left fa-5x" @click="back"></i>
-            <i class="fa fa-4x" :class="{'fa-heart':isFavorite,'fa-heart-o':!isFavorite}"  @click="favor"></i>
+            <i class="fa fa-angle-left fa-2x" @click="back"></i>
+            <i class="fa fa-2x" :class="{'fa-heart':isFavorite,'fa-heart-o':!isFavorite}"  @click="favor"></i>
         </div>
         <div class="details">
             <div class="details-header">
@@ -41,32 +41,32 @@
         width: 100%;
         height: auto;
         background-color: #fff;
-        padding: 20px;
+        padding: 10px;
         border-bottom: 1px solid #777;
     }
     .toolbar .fa-angle-left {
         display: inline-block;
         text-align: center;
-        width: 60px;
+        width: 40px;
         color: #42b983;
     }
     .toolbar .fa-heart,
     .toolbar .fa-heart-o {
         position: absolute;
-        right: 80px;
-        top: 30px;
+        right: 30px;
+        top: 10px;
     }
     .toolbar .fa-heart {
         color: #f00;
     }
     .news-details .details {
-        padding: 18px;
-        padding-top: 6.4em;
+        padding: 10px;
+        padding-top: 3em;
         overflow-y: scroll;
     }
     .news-details .details .details-header h1 {
         margin-bottom: 0;
-        font-size: 2em;
+        font-size: 1.2em;
     }
     .news-details .details .details-header p {
         margin: 15px 0;

@@ -20,8 +20,8 @@ export default {
 </script>
 <style>
     .news {
-        padding-top: 8em;
-        padding-bottom: 8em;
+        padding-top: 4em;
+        padding-bottom: 4em;
         z-index: 1;
     }
 </style>

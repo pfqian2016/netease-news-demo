@@ -14,16 +14,16 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-start;
-    border-top: 1px solid #333;
+    border-top: 1px solid #ccc;
     z-index: 100;
 }
 .nav a {
     display: inline-block;
-    padding: 1em 0;
+    padding: .8em 0;
     width: 50%;
     color: #999;
     background-color: #fff;
-    font-size: 2.6em;
+    font-size: 1.2em;
     text-align: center;
     text-decoration: none;
 }

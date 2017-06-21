@@ -19,13 +19,13 @@ export default {
     .load-more button {
         display: block;
         width: 100%;
-        padding: 1.6em 0;
+        padding: 1em 0;
         border: none;
         outline: none;
-        border-top: 1px solid #777;
+        border-top: 1px solid #ddd;
         color: #aaa;
         background-color: #fff;
-        font-size: 2.2em;
+        font-size: 1.2em;
         text-align: center;
     }
     .load-more button img {

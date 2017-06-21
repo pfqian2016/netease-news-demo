@@ -29,34 +29,34 @@ export default {
 }
 </script>
 <style scoped>
-    .news-list {
-        overflow-y: scroll;
-        z-index: 1;
-    }
-    .news-list li {
-        list-style-type: none;
-        padding: 20px;
-    }
-    .news-list li img {
-        display: block;
-        width: 240px;
-        height: 240px;
-        float: left;
-    }
-    .news-list li .news-list-inner {
-        position: relative;
-        padding-left: 260px;
-        height: 240px;
-        width: auto;
-    }
-    .news-list li .news-list-inner h2 {
-        margin-top: 0;
-        font-size: 2.4em;
-    }
-    .news-list li .news-list-inner p {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        font-size: 1.8em;
-    }
+.news-list {
+    overflow-y: scroll;
+    z-index: 1;
+}
+.news-list li {
+    list-style-type: none;
+    padding: 8px;
+}
+.news-list li img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+.news-list li .news-list-inner {
+    position: relative;
+    padding-left: 90px;
+    height: 80px;
+    width: auto;
+}
+.news-list li .news-list-inner h2 {
+    margin-top: 0;
+    font-size: .8em;
+}
+.news-list li .news-list-inner p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: .8em;
+}
 </style>

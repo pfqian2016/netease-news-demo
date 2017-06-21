@@ -46,12 +46,12 @@
         margin: 0;
     }
     .user-center {
-        padding-bottom: 8em;
+        padding-bottom: 4.4em;
         z-index: 1;
     }
     .user-center .header-bg {
       width: 100%;
-      height: 30em;
+      height: 14em;
       background-color: #42b983;
     }
     .user-center .user-header {
@@ -61,18 +61,18 @@
     .user-center img {
         display: block;
         position: absolute;
-        top: calc(30em - 100px);
-        left: calc(50% - 100px);
+        top: calc(14em - 50px);
+        left: calc(50% - 50px);
         margin: 0 auto;
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
     }
     .user-center .user-header .user-control,
     .user-center .user-header .username {
-        margin: 120px auto 30px;
+        margin: 60px auto 30px;
         text-align: center;
-        font-size: 2.4em;
+        font-size: 1em;
     }
     .user-control span {
         color: #42b983;
@@ -83,8 +83,8 @@
     }
     .user-center ul > a {
         display: block;
-        padding: .5em 30px;
-        font-size: 3.4em;
+        padding: .4em 20px;
+        font-size: 1.6em;
         list-style-type: none;
         text-decoration: none;
         color: #42b983;
