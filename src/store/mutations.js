@@ -1,5 +1,5 @@
 import * as types from './types'
-
+import axios from 'axios'
 const mutations = {
     [types.REFRESH](state) {
         //clear array of datas
@@ -51,7 +51,7 @@ const mutations = {
         if(!state.isFavorite) {
             //TODO add news to favorites
             if(state.isUserValid) {
-                state.userInfo.favorites.push(state.newsDetails);
+                state.userInfo.favorites.unshift(state.newsDetails);
                 state.isFavorite = !state.isFavorite;
                 console.log(state.userInfo.favorites);
             } else {
@@ -77,46 +77,34 @@ const mutations = {
 
 function queryDatas(state) {
     state.isLoading = true;
-    let xhr = new XMLHttpRequest();
     let url = 'http://wangyi.butterfly.mopaasapp.com/news/api?type='
               + state.currentType
               + '&page='
               + state[state.currentType +'QueryPage']
               + '&limit=10';
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4) {
-            if(xhr.status === 200 || xhr.status === 304) {
-                let lists = JSON.parse(xhr.responseText).list;
-                for(let i = 0; i < lists.length; i++) {
-                    state[state.currentType + 'NewsList'].push(lists[i]);
-                }
-                state[state.currentType + 'NewsList'] = dedupe(state[state.currentType + 'NewsList']);
-                state[state.currentType + 'QueryPage']++;
-                state.isLoading = false;
-            }
-        }
-    };
-    xhr.send(null);
+    axios.get(url)
+         .then(res => {
+             let lists = res.data.list;
+             for(let i = 0; i < lists.length; i++) {
+                 state[state.currentType + 'NewsList'].push(lists[i]);
+             }
+             state[state.currentType + 'NewsList'] = dedupe(state[state.currentType + 'NewsList']);
+             state[state.currentType + 'QueryPage']++;
+             state.isLoading = false;
+         });
 }
 function queryDetails(state, payload) {
-    let xhr = new XMLHttpRequest();
     let url = 'http://wangyi.butterfly.mopaasapp.com/detail/api?simpleId='
               + payload.id;
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4) {
-            if(xhr.status === 200 || xhr.status === 304) {
-                let details = JSON.parse(xhr.responseText);
-                details.docurl = payload.docurl;
-                details.imgurl = payload.imgurl;
-                details.id = payload.id;
-                state.newsDetails = details;
-                checkFavored(state, payload);
-            }
-        }
-    };
-    xhr.send(null);
+    axios.get(url)
+         .then(res => {
+            let details = res.data;
+            details.docurl = payload.docurl;
+            details.imgurl = payload.imgurl;
+            details.id = payload.id;
+            state.newsDetails = details;
+            checkFavored(state, payload);
+         });
 }
 function signUp(state, user) {
     user.favorites = [];
@@ -146,7 +134,11 @@ function logout(state) {
     window.localStorage.setItem(types.NETEASE_NEWS_USERS,JSON.stringify(userList));
 }
  function checkFavored(state, payload) {
-     state.isFavorite = state.userInfo.favorites.some(item => item.id === payload.id);
+     try {
+         state.isFavorite = state.userInfo.favorites.some(item => item.id === payload.id);
+     }catch(e) {
+         console.log('If you want to use favorites function, please login first.If not, feel free to read news without login.');
+     }
  }
  /**
   * 新闻列表去重函数

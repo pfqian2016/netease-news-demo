@@ -14,7 +14,7 @@
                     <input id="password" type="password" name="password" placeholder="password" v-model="password">
                 </div>
                 <div class="input-group">
-                    <button type="submit" name="button" @click="confirm">Login/Sign up</button>
+                    <button type="submit" name="button" @click="confirm">{{isLoginOrSignup}}</button>
                 </div>
             </div>
         </div>

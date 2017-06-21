@@ -23,9 +23,10 @@ npm run dev
 6. ~~收藏感兴趣的新闻~~
 
 ### 未修复的bug  
-1. 未对两次请求到的新闻去重  
+1. ~~未对两次请求到的新闻去重~~  
 2. 部分新闻详情中的图片大小超出屏幕  
 
 预览图：  
 ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview.png)   ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview1.png)  
 ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview2.png)   ![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview3.png)  
+![](https://github.com/pfqian2016/netease-news-demo/blob/master/preview4.png)
