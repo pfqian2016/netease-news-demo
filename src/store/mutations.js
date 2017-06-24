@@ -32,7 +32,8 @@ const mutations = {
             state.isUserValid = true;
             state.showModal = false;
         }else {
-            console.log('Please register first');
+            // console.log('Please register first');
+            alert('Please register first');
         }
     },
     [types.USER_SIGNUP](state,user) {
@@ -55,7 +56,8 @@ const mutations = {
                 state.isFavorite = !state.isFavorite;
                 console.log(state.userInfo.favorites);
             } else {
-                console.log('Please login first');
+                // console.log('Please login first');
+                alert('Please login first');
             }
         } else {
             //TODO remove news from favorites
@@ -108,7 +110,7 @@ function queryDetails(state, payload) {
 }
 function signUp(state, user) {
     user.favorites = [];
-    user.messages = [];
+    user.messages = ['Hello','Wolrd'];
     state.userInfo = user;
     state.userList = JSON.parse(window.localStorage.getItem(types.NETEASE_NEWS_USERS)) || [];
     window.localStorage.removeItem(types.NETEASE_NEWS_USERS);
@@ -137,7 +139,13 @@ function logout(state) {
      try {
          state.isFavorite = state.userInfo.favorites.some(item => item.id === payload.id);
      }catch(e) {
-         console.log('If you want to use favorites function, please login first.If not, feel free to read news without login.');
+        //  console.log('If you want to use favorites function, please login first.If not, feel free to read news without login.');
+        if(state.showFavoriteDialog) {
+            alert('If you want to use favorites function, please login first.If not, feel free to read news without login.');
+            state.showFavoriteDialog = false;
+        }else {
+             console.log('If you want to use favorites function, please login first.If not, feel free to read news without login.');
+        }
      }
  }
  /**

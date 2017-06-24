@@ -11,6 +11,7 @@ import Stock from '../components/newsType/Stock.vue'
 import Travel from '../components/newsType/Travel.vue'
 import Female from '../components/newsType/Female.vue'
 import Favorites from '../components/userDetails/Favorites.vue'
+import Messages from '../components/userDetails/Messages.vue'
 
 const routes = [
     {
@@ -66,6 +67,10 @@ const routes = [
             {
                 path: 'favorites',
                 component: Favorites
+            },
+            {
+                path: 'messages',
+                component: Messages
             }
         ]
     },

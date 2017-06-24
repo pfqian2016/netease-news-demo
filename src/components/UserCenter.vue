@@ -12,7 +12,7 @@
         </div>
         <ul>
             <router-link to="/user/favorites" replace>Favorites</router-link>
-            <router-link to="/user/favorites" replace>Messages</router-link>
+            <router-link to="/user/messages" replace>Messages</router-link>
         </ul>
         <router-view></router-view>
         <Modal v-if="showModal"></Modal>

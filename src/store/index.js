@@ -37,7 +37,8 @@ const state = {
     isLoginOrSignup:'',//用户点击的按钮类型
     userInfo: {},//存放登录用户信息
     userList: [],//模拟服务器存放所有用户信息
-    isFavorite: false//是否收藏这条新闻
+    isFavorite: false,//是否收藏这条新闻
+    showFavoriteDialog:true//首次进入详情页提示用户登录
 };
 
 
